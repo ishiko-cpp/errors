@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="https://nuime.org/schema/core/1">
-  <name>errors</name>
+  <name>IshikoErrors</name>
   <targets>
     <target>
-      <name>errors-lib</name>
+      <name>lib</name>
       <labels>
         <label>nuime:product</label>
       </labels>
       <build-dependencies>
         <dependency>
-          <name>base-platform</name>
+          <name>IshikoBasePlatform</name>
           <target-refs>
             <target-ref>
               <location>
-                <url>https://github.com/ishiko-cpp/base-platform/build-files/nuime/base-platform.nuime</url>
+                <url>https://github.com/ishiko-cpp/base-platform/build-files/nuime/IshikoBasePlatform.nuime</url>
               </location>
-              <name>base-platform-lib</name>
+              <name>lib</name>
             </target-ref>
           </target-refs>
         </dependency>
@@ -24,9 +24,9 @@
         <property name="nuime:test-suite">
           <target-ref>
             <location>
-              <url>https://github.com/ishiko-cpp/errors/tests/build-files/nuime/errors-tests.nuime</url>
+              <url>https://github.com/ishiko-cpp/errors/tests/build-files/nuime/IshikoErrorsTests.nuime</url>
             </location>
-            <name>errors-tests</name>
+            <name>tests</name>
           </target-ref>
         </property>
       </properties>
@@ -34,12 +34,12 @@
   </targets>
   <subprojects>
     <subproject>
-      <name>errors-tests</name>
+      <name>IshikoErrorsTests</name>
       <labels>
         <label>nuime:tests</label>
       </labels>
       <location>
-        <url>https://github.com/ishiko-cpp/errors/tests/build-files/nuime/errors-tests.nuime</url>
+        <url>https://github.com/ishiko-cpp/errors/tests/build-files/nuime/IshikoErrorsTests.nuime</url>
       </location>
     </subproject>
   </subprojects>
