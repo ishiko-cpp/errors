@@ -16,6 +16,9 @@ public:
 
     const char* name() const noexcept override;
     const char* message(int ev, char* buffer, size_t len) const noexcept override;
+
+private:
+    TestErrorCategory1() noexcept;
 };
 
 #endif

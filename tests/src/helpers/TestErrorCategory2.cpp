@@ -6,6 +6,11 @@
 
 #include "TestErrorCategory2.hpp"
 
+TestErrorCategory2::TestErrorCategory2() noexcept
+    : Ishiko::ErrorCategory(ID(0x7fd3a6958d844665ULL, 0x8a1cab1292aff9c0ULL)) // 7fd3a695-8d84-4665-8a1c-ab1292aff9c0
+{
+}
+
 const TestErrorCategory2& TestErrorCategory2::Get() noexcept
 {
     static TestErrorCategory2 theTestErrorCategory2;

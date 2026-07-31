@@ -28,20 +28,10 @@ public:
     class ID
     {
     public:
-        ID(std::uint64_t high, std::uint64_t low) noexcept
-            : m_high(high), m_low(low)
-        {
-        }
+        inline ID(std::uint64_t high, std::uint64_t low) noexcept;
 
-        bool operator==(const ID& other) const noexcept
-        {
-            return ((m_high == other.m_high) && (m_low == other.m_low));
-        }
-
-        bool operator!=(const ID& other) const noexcept
-        {
-            return !(*this == other);
-        }
+        inline bool operator==(const ID& other) const noexcept;
+        inline bool operator!=(const ID& other) const noexcept;
 
     private:
         std::uint64_t m_high;
@@ -49,7 +39,7 @@ public:
     };
 
     /// Returns the value-based identity of the category. Use this for equality, never the category's address.
-    ID id() const noexcept;
+    inline ID id() const noexcept;
 
     std::string message(int ev) const override;
     virtual const char* message(int ev, char* buffer, size_t len) const noexcept = 0;
@@ -62,6 +52,26 @@ private:
     ID m_id;
 };
 
+}
+
+Ishiko::ErrorCategory::ID::ID(std::uint64_t high, std::uint64_t low) noexcept
+    : m_high(high), m_low(low)
+{
+}
+
+bool Ishiko::ErrorCategory::ID::operator==(const ID& other) const noexcept
+{
+    return ((m_high == other.m_high) && (m_low == other.m_low));
+}
+
+bool Ishiko::ErrorCategory::ID::operator!=(const ID& other) const noexcept
+{
+    return !(*this == other);
+}
+
+Ishiko::ErrorCategory::ID Ishiko::ErrorCategory::id() const noexcept
+{
+    return m_id;
 }
 
 #endif

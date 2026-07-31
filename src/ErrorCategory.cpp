@@ -14,11 +14,6 @@ ErrorCategory::ErrorCategory(ID id) noexcept
 {
 }
 
-ErrorCategory::ID ErrorCategory::id() const noexcept
-{
-    return m_id;
-}
-
 std::string ErrorCategory::message(int ev) const
 {
     return message(ev, nullptr, 0);
