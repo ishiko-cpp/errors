@@ -8,6 +8,11 @@
 
 using namespace Ishiko;
 
+SuccessCategory::SuccessCategory() noexcept
+    : ErrorCategory(ID(0xbd99cf104a10431aULL, 0x87b114371e6229daULL)) // bd99cf10-4a10-431a-87b1-14371e6229da
+{
+}
+
 const SuccessCategory& SuccessCategory::Get() noexcept
 {
     static SuccessCategory theCategory;

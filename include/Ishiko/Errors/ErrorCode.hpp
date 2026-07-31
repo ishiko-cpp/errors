@@ -10,7 +10,6 @@
 #include "ErrorCategory.hpp"
 #include "SuccessCategory.hpp"
 #include <ostream>
-#include <typeinfo>
 
 namespace Ishiko
 {
@@ -60,7 +59,7 @@ bool Ishiko::ErrorCode::operator!() const noexcept
 
 bool Ishiko::ErrorCode::operator==(const ErrorCode& other) const noexcept
 {
-    return ((m_value == other.m_value) && (typeid(*m_category) == typeid(*other.m_category)));
+    return ((m_value == other.m_value) && (m_category->id() == other.m_category->id()));
 }
 
 bool Ishiko::ErrorCode::operator!=(const ErrorCode& other) const noexcept

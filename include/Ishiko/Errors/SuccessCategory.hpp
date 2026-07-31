@@ -21,7 +21,7 @@ public:
     const char* message(int ev, char* buffer, size_t len) const noexcept override;
 
 private:
-    SuccessCategory() noexcept = default;
+    SuccessCategory() noexcept;
 };
 
 }

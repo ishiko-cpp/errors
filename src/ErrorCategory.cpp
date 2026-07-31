@@ -9,6 +9,11 @@
 
 using namespace Ishiko;
 
+ErrorCategory::ErrorCategory(ID id) noexcept
+    : m_id(id)
+{
+}
+
 std::string ErrorCategory::message(int ev) const
 {
     return message(ev, nullptr, 0);
