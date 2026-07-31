@@ -8,6 +8,11 @@
 
 using namespace Ishiko;
 
+ErrorsErrorCategory::ErrorsErrorCategory() noexcept
+    : ErrorCategory(ID(0x01675c42d6f843bfULL, 0xa52dd1af771c0857ULL)) // 01675c42-d6f8-43bf-a52d-d1af771c0857
+{
+}
+
 const ErrorsErrorCategory& ErrorsErrorCategory::Get() noexcept
 {
     static ErrorsErrorCategory theCategory;
