@@ -27,7 +27,7 @@ public:
     const char* message(int ev, char* buffer, size_t len) const noexcept override;
 
 private:
-    ErrorsErrorCategory() noexcept = default;
+    ErrorsErrorCategory() noexcept;
 };
 
 }
