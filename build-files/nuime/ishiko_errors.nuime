@@ -1,0 +1,72 @@
+%YAML 1.2
+---
+nuime-version: "0.1"
+name: IshikoErrors
+targets:
+  - name: lib
+    labels:
+      - nuime:product
+      - nuime:code:static-library
+    build-dependencies:
+      - name: IshikoBasePlatform
+        target-ref:
+          location:
+            url: https://github.com/ishiko-cpp/base-platform/build-files/nuime/ishiko_baseplatform.nuime
+          name: lib
+    input-groups:
+      - labels:
+          - nuime:code:cpp-source
+        base: ../../src
+        inputs:
+          - Error.cpp
+          - ErrorCategory.cpp
+          - ErrorCode.cpp
+          - ErrorsErrorCategory.cpp
+          - ErrorString.cpp
+          - Exception.cpp
+          - InfoErrorExtension.cpp
+          - SuccessCategory.cpp
+        properties:
+          - name: nuime:code:cpp-user-include-directories
+            value: ../../include/Ishiko/Errors
+      - labels:
+          - nuime:code:cpp-header
+        base: ../../include/Ishiko
+        inputs:
+          - Errors.hpp
+          - Errors/Error.hpp
+          - Errors/ErrorCode.hpp
+          - Errors/ErrorCategory.hpp
+          - Errors/ErrorsErrorCategory.hpp
+          - Errors/ErrorString.hpp
+          - Errors/Exception.hpp
+          - Errors/InfoErrorExtension.hpp
+          - Errors/linkoptions.hpp
+          - Errors/SuccessCategory.hpp
+    output-groups:
+      - base: ../../lib
+        outputs:
+          - name: ishiko_errors
+            filename:
+              prefix: lib
+              tags:
+                - axis: nuime:code:configuration
+                  values:
+                    debug: "-gd"
+                    release: ""
+                - axis: nuime:code:architecture
+                  values:
+                    x86: "-x86"
+                    x64: "-x64"
+    properties:
+      - name: nuime:test-suite
+        target-ref:
+          location:
+            url: https://github.com/ishiko-cpp/errors/tests/build-files/nuime/IshikoErrorsTests.nuime
+          name: tests
+subprojects:
+  - name: IshikoErrorsTests
+    labels:
+      - nuime:tests
+    location:
+      url: https://github.com/ishiko-cpp/errors/tests/build-files/nuime/IshikoErrorsTests.nuime
